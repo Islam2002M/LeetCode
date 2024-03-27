@@ -1,0 +1,18 @@
+class Solution {
+public:
+    string countAndSay(int n) {
+        if(n==1)return "1";
+        string s=countAndSay(n-1);
+        int i=0,j=0;
+        string curr="";
+        while(i<s.size())
+        {
+            j=i+1;
+            while(j<s.size()&&s[i]==s[j])j++;
+            string ss =to_string(j-i);
+            curr+=ss+s[i];
+            i=j;
+        }
+       return curr;
+    }
+};
